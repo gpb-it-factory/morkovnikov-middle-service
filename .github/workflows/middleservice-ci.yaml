@@ -1,4 +1,4 @@
-name: morkovnikov-middle-bot CI
+name: morkovnikov-middle-service CI
 
 on:
   pull_request:

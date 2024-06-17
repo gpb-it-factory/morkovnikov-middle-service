@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: morkovnikov-middle-service
+server:
+  port: 8081
+backend-service:
+  url: http://127.0.0.1:8080

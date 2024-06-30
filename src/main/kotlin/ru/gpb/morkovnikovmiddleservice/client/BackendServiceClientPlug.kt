@@ -10,10 +10,12 @@ class BackendServiceClientPlug:BackendServiceClient {
     }
 
     override fun createAccount(telegramUserId: Long): ResponseEntity<String> {
-        TODO("Not yet implemented")
+        val responseBody = "Вы успешно создали счет"
+        return ResponseEntity(responseBody, HttpStatus.NO_CONTENT)
     }
 
     override fun checkUser(telegramUserId: Long): ResponseEntity<String> {
-        TODO("Not yet implemented")
+        val responseBody = "Данный пользователь существует"
+        return ResponseEntity(responseBody, HttpStatus.NO_CONTENT)
     }
 }

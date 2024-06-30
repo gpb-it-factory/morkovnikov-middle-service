@@ -6,18 +6,15 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import ru.gpb.morkovnikovmiddleservice.dto.RegisterRequest
+import ru.gpb.morkovnikovmiddleservice.service.AccountService
 import ru.gpb.morkovnikovmiddleservice.service.UserService
 
 @RestController
-@RequestMapping("/v2/register")
-class RegisterController(
-    private val userService: UserService
-) {
-
+@RequestMapping("/v2/account")
+class CreateAccountController(private val accountService: AccountService) {
     @PostMapping
-    fun doRegister(@RequestBody request: RegisterRequest): ResponseEntity<String> {
+    fun createAccount(@RequestBody request: RegisterRequest): ResponseEntity<String> {
         val telegramUserId = request.telegramUserId
-        val telegramUserName = request.telegramUserName
-        return userService.registerUser(telegramUserId, telegramUserName)
+        return accountService.createAccount(telegramUserId)
     }
 }

@@ -3,11 +3,14 @@ package ru.gpb.morkovnikovmiddleservice.service
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
+import ru.gpb.morkovnikovmiddleservice.client.BackendServiceClientPlug
+import ru.gpb.morkovnikovmiddleservice.service.impl.UserServiceRest
 import kotlin.random.Random
 
-class RegisterServicePlugTest {
+class UserServicePlugTest {
 
-    private val registerService = RegisterServicePlug()
+    private val backendServiceClientPlug = BackendServiceClientPlug()
+    private val registerService = UserServiceRest(backendServiceClientPlug)
     @Test
     @DisplayName("Успешная регистрация пользователя")
     fun successRegisterUser() {
@@ -16,7 +19,6 @@ class RegisterServicePlugTest {
 
         val result = registerService.registerUser(telegramUserId, testUserName).body
 
-
-        Assertions.assertEquals("Пользователь ${telegramUserId} успешно зарегестрирован", result)
+        Assertions.assertEquals("Вы успешно зарегестрировались", result)
     }
 }
